@@ -137,7 +137,7 @@ const TaskForm = ({ kisiler, submitFn }) => {
             <label className="input-checkbox" key={p}>
               <input
                 type="checkbox"
-                name="people"
+                id="people"
                 value={p}
                 onChange={handleCheckboxChange}
                 checked={formData.people.includes(p)}
