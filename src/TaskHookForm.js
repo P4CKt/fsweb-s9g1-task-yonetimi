@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import {useForm} from "react-hook-form";
-
+ import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function TaskHookForm(props) {
+
   const { kisiler, submitFn }= props;
   
   const {
@@ -20,12 +22,12 @@ export default function TaskHookForm(props) {
     }
     
     )
-    console.log(data)
-    console.log(props.tasks)
-    console.log(peopleClone)
+  
+  
+  
   
   }
- 
+ const notify = () => toast("Yepp işte olduu!");
 
   return (
     
@@ -90,10 +92,22 @@ export default function TaskHookForm(props) {
         className="submit-button"
         type="submit"
         disabled={!isValid}
-    
+        onClick={notify}
       >
         Kaydet
       </button>
+      <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+/>
     </div>
   </form>
   )
