@@ -20,7 +20,9 @@ function App() {
   }
 
   function handleComplete(id) {
-    console.log("tamamlama fonksiyonunu buraya yazın")
+   const nTasks=[...tasks]
+   nTasks.find(item=> item.id === id).status= "yapıldı";
+   setTasks(nTasks)
   }
 
   return (

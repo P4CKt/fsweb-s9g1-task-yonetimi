@@ -75,11 +75,17 @@ export default function TaskHookForm(props) {
               value={p} 
               
               {...register("people",{
-                min:{value:1, message:"Lütfen en az bir kişi seçin"},
-              max:{value:3, message:"En fazla 3 kişi seçebilirsiniz"}})}
+                required: {
+                  value: true,
+                  message: "En az 1 kişi seçin",
+                },
+
+                validate: {
+                  maxKisi: (kisiler) =>
+                    kisiler.length <= 3 || "en fazla 3 kişi seçin",}})}
             />{p}
-           
-            { errors.people&& <p className="input-error">{errors.people.message}</p>}
+            
+          <p className="input-error">{errors?.people?.message}</p>
           </label>
         
         ))}
